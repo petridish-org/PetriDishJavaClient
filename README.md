@@ -1,6 +1,6 @@
 # PetriDish Java Client
 
-**English** · [Русский](#petridish-java-client-ru)
+**English** · [Русский](#petridish-java-client-1)
 
 Official builds of the PetriDish client — a multiplayer cell-eating game.
 
@@ -26,8 +26,6 @@ The Windows build always available at the same address:
 Game site: <https://petridish.pw>
 
 ---
-
-<a name="petridish-java-client-ru"></a>
 
 # PetriDish Java Client
 
