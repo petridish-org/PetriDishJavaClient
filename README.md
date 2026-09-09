@@ -34,6 +34,7 @@ Game site: <https://petridish.pw>
 Официальные сборки клиента PetriDish — многопользовательской игры про поедание клеток.
 
 **Все загрузки и ссылки на платформы: [pc.petridish.pw](https://pc.petridish.pw)**
+Зеркало: **[pc.bact.io](https://pc.bact.io)**
 
 Здесь лежат только готовые сборки — исходный код игры не публикуется.
 Каждая сборка приложена к [релизу](https://github.com/petridish-org/PetriDishJavaClient/releases).
