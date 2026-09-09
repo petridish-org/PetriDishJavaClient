@@ -7,6 +7,8 @@
 
 <br>
 
+**[Download page · Страница загрузок](https://petridish-org.github.io/PetriDishJavaClient/)**
+
 ### Download the client · Скачать клиент
 
 Choose your platform · Выбери свою платформу
