@@ -8,3 +8,14 @@
 .hero{min-height:0;padding:0;background:#041a38}
 .hero a{display:block;line-height:0}
 .hero img{display:block;width:100%;height:auto}
+
+/* Bilingual page: both languages sit in the markup and <html lang> picks one.
+   English is the fallback, so .ru is what gets hidden when lang is not ru. */
+html[lang="ru"] .en{display:none}
+html:not([lang="ru"]) .ru{display:none}
+
+.lang-switch{position:absolute;top:18px;right:22px;z-index:5;display:flex;gap:6px;padding:5px;border:1px solid rgba(45,171,255,.35);border-radius:999px;background:rgba(4,24,48,.72);backdrop-filter:blur(6px)}
+.lang-switch button{min-width:44px;padding:7px 12px;border:0;border-radius:999px;background:transparent;color:#9fd0f4;font:inherit;font-size:14px;font-weight:700;letter-spacing:.5px;cursor:pointer}
+.lang-switch button:hover{color:#e8f6ff}
+.lang-switch button.active{background:linear-gradient(135deg,#35e1ee,#049fe8);color:#05203e}
+@media(max-width:700px){.lang-switch{top:12px;right:12px}.lang-switch button{min-width:38px;padding:6px 10px;font-size:13px}}
