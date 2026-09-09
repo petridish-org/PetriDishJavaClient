@@ -12,6 +12,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Language: both languages live in the markup, <html lang> decides which one
+       is visible (see the .en/.ru rules in styles.css). The choice is remembered
+       in localStorage; a first-time visitor gets Russian if the browser asks for
+       it. With JavaScript off the page stays English, which is the lang above. -->
+  <nav class="lang-switch" aria-label="Language">
+    <button type="button" data-lang="en">EN</button>
+    <button type="button" data-lang="ru">RU</button>
+  </nav>
+
   <main>
     <section class="hero">
       <a href="https://petridish.pw/" title="Play online">
@@ -23,45 +32,48 @@
       <div class="section-heading">
         <div class="round-icon">↓</div>
         <div>
-          <h2>Download Client</h2>
-          <p>Choose your platform and get the game.</p>
+          <h2><span class="en">Download Client</span><span class="ru">Скачать клиент</span></h2>
+          <p><span class="en">Choose your platform and get the game.</span><span class="ru">Выбери свою платформу и забирай игру.</span></p>
         </div>
       </div>
 
       <div class="platform-grid">
         <a class="platform" href="https://github.com/petridish-org/PetriDishJavaClient/releases/download/v5.0.0/PetriDishJ500.exe">
           <div class="platform-icon">⊞</div>
-          <div class="platform-name"><strong>Windows</strong><small>v5.0.0 · no installer</small></div>
-          <span class="download">↓ Download</span>
+          <div class="platform-name"><strong>Windows</strong><small>v5.0.0 · <span class="en">no installer</span><span class="ru">без установки</span></small></div>
+          <span class="download"><span class="en">↓ Download</span><span class="ru">↓ Скачать</span></span>
         </a>
         <a class="platform" href="https://github.com/petridish-org/PetriDishJavaClient/releases/download/v5.0.0/PetriDish-5.0.0-arm64.dmg">
           <div class="platform-icon">●</div>
           <div class="platform-name"><strong>macOS</strong><small>Apple Silicon</small></div>
-          <span class="download">↓ Download</span>
+          <span class="download"><span class="en">↓ Download</span><span class="ru">↓ Скачать</span></span>
         </a>
         <a class="platform" href="https://github.com/petridish-org/PetriDishJavaClient/releases/download/v5.0.0/PetriDish-5.0.0-x64.dmg">
           <div class="platform-icon">●</div>
           <div class="platform-name"><strong>macOS</strong><small>Intel</small></div>
-          <span class="download">↓ Download</span>
+          <span class="download"><span class="en">↓ Download</span><span class="ru">↓ Скачать</span></span>
         </a>
         <a class="platform" href="https://github.com/petridish-org/PetriDishJavaClient/releases/latest/download/PetriDish-android-legacy-version.apk">
           <div class="platform-icon">♙</div>
-          <div class="platform-name"><strong>Android</strong><small>5.1+ · older phones</small></div>
-          <span class="download">↓ Download</span>
+          <div class="platform-name"><strong>Android</strong><small>5.1+ · <span class="en">older phones</span><span class="ru">старые телефоны</span></small></div>
+          <span class="download"><span class="en">↓ Download</span><span class="ru">↓ Скачать</span></span>
         </a>
       </div>
 
       <details class="other">
         <summary>
           <span class="other-icon">◈</span>
-          <span><strong>Other versions</strong><small>Java, stores and more</small></span>
+          <span>
+            <strong><span class="en">Other versions</span><span class="ru">Другие версии</span></strong>
+            <small><span class="en">Java, stores and more</span><span class="ru">Java, сторы и прочее</span></small>
+          </span>
           <span class="chevron">⌄</span>
         </summary>
         <div class="other-links">
           <a href="https://github.com/petridish-org/PetriDishJavaClient/releases/latest/download/PetriDish-desktop-min.jar">Java .JAR</a>
           <a href="https://play.google.com/store/apps/details?id=pw.petridish">Google Play</a>
           <a href="https://apps.apple.com/app/id1247567081">App Store</a>
-          <a href="https://github.com/petridish-org/PetriDishJavaClient/releases">All releases</a>
+          <a href="https://github.com/petridish-org/PetriDishJavaClient/releases"><span class="en">All releases</span><span class="ru">Все релизы</span></a>
         </div>
       </details>
     </section>
@@ -69,9 +81,9 @@
     <section class="mirrors">
       <div class="mirrors-title">
         <div class="server-icon">☷</div>
-        <h2>Mirrors</h2>
+        <h2><span class="en">Mirrors</span><span class="ru">Зеркала</span></h2>
       </div>
-      <p>If the main download is unavailable, try one of these mirrors.</p>
+      <p><span class="en">If the main download is unavailable, try one of these mirrors.</span><span class="ru">Если основная загрузка недоступна, попробуй одно из зеркал.</span></p>
       <div class="mirror-grid">
         <a href="https://pc.petridish.pw/">↗ <span>pc.petridish.pw</span></a>
         <a href="https://pc.bact.io/">↗ <span>pc.bact.io</span></a>
@@ -81,6 +93,38 @@
     </section>
   </main>
 
-  <footer>♥ &nbsp; Play together. Grow together.</footer>
+  <footer>
+    ♥ &nbsp;<span class="en">Play together. Grow together.</span><span class="ru">Играем вместе. Растём вместе.</span>
+  </footer>
+
+  <script>
+    (function () {
+      var KEY = 'petridish-lang';
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll('.lang-switch button');
+
+      function apply(lang) {
+        root.lang = lang;
+        for (var i = 0; i < buttons.length; i++) {
+          var on = buttons[i].getAttribute('data-lang') === lang;
+          buttons[i].classList.toggle('active', on);
+          buttons[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+        }
+      }
+
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      var guess = (navigator.language || '').toLowerCase().indexOf('ru') === 0 ? 'ru' : 'en';
+      apply(saved === 'ru' || saved === 'en' ? saved : guess);
+
+      for (var j = 0; j < buttons.length; j++) {
+        buttons[j].addEventListener('click', function () {
+          var lang = this.getAttribute('data-lang');
+          apply(lang);
+          try { localStorage.setItem(KEY, lang); } catch (e) {}
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
