@@ -19,7 +19,7 @@
 [![macOS Intel](https://img.shields.io/badge/macOS-Intel-4A4A4A?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/petridish-org/PetriDishJavaClient/releases/download/v5.0.0/PetriDish-5.0.0-x64.dmg)
 
 [![Java jar](https://img.shields.io/badge/Any%20system-Java%20.jar-E76F00?style=for-the-badge&logo=openjdk&logoColor=white)](https://github.com/petridish-org/PetriDishJavaClient/releases/latest/download/PetriDish-desktop-min.jar)
-[![Android APK](https://img.shields.io/badge/Android-.apk-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/petridish-org/PetriDishJavaClient/releases/latest/download/PetriDish-android-legacy-version.apk)
+[![APK for older Android phones](https://img.shields.io/badge/Android%205.1%2B-older%20phones%20.apk-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/petridish-org/PetriDishJavaClient/releases/latest/download/PetriDish-android-legacy-version.apk)
 
 [![Google Play](https://img.shields.io/badge/Google%20Play-install-414141?style=flat-square&logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=pw.petridish)
 [![App Store](https://img.shields.io/badge/App%20Store-install-0D96F6?style=flat-square&logo=appstore&logoColor=white)](https://apps.apple.com/app/id1247567081)
