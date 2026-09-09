@@ -1,0 +1,68 @@
+name: Create release
+
+# Why this exists: a release is credited to whoever's token created it, and that
+# author cannot be edited afterwards. Creating releases from a personal token
+# would print a personal account name on every release page forever, so the
+# release is created here instead - with the Actions token, which shows up as
+# github-actions. The binaries are still uploaded from the build machine
+# afterwards (`gh release upload`); an asset upload does not change the author.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release, e.g. v5.0.1'
+        required: true
+      title:
+        description: 'Release title, e.g. PetriDish 5.0.1'
+        required: true
+      notes:
+        description: 'Release notes (markdown)'
+        required: false
+        default: ''
+      draft:
+        description: 'Create as a draft (true/false)'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create the release
+        env:
+          # Inputs go through the environment, never inlined into the script:
+          # ${{ }} interpolation inside run: would be a shell injection hole.
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+          TAG: ${{ inputs.tag }}
+          TITLE: ${{ inputs.title }}
+          NOTES: ${{ inputs.notes }}
+          DRAFT: ${{ inputs.draft }}
+        run: |
+          set -euo pipefail
+
+          if gh release view "$TAG" --repo "$REPO" >/dev/null 2>&1; then
+            echo "Release $TAG already exists - nothing to do."
+            exit 0
+          fi
+
+          printf '%s' "$NOTES" > notes.md
+
+          # --target only matters when the tag does not exist yet; for an
+          # existing tag GitHub keeps the commit the tag already points at.
+          if [ "$DRAFT" = "true" ]; then
+            gh release create "$TAG" --repo "$REPO" --target "$SHA" \
+              --title "$TITLE" --notes-file notes.md --draft
+          else
+            gh release create "$TAG" --repo "$REPO" --target "$SHA" \
+              --title "$TITLE" --notes-file notes.md
+          fi
+
+          echo "Created $TAG:"
+          gh release view "$TAG" --repo "$REPO" --json author,isDraft,url \
+            --template '{{.url}}{{"\n"}}author: {{.author.login}}{{"\n"}}draft: {{.isDraft}}{{"\n"}}'
