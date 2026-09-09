@@ -25,7 +25,7 @@
 
   <main>
     <section class="hero">
-      <a href="https://petridish.pw/" title="Play online">
+      <a id="hero-link" href="https://petridish.pw/" title="Play online">
         <img id="hero-art" src="assets/hero-art.png" alt="PetriDish — multiplayer cell-eating game. Play online">
       </a>
     </section>
@@ -106,9 +106,14 @@
       var buttons = document.querySelectorAll('.lang-switch button');
 
       var hero = document.getElementById('hero-art');
+      var heroLink = document.getElementById('hero-link');
+      // The banner carries the PLAY ONLINE button, so the whole hero is a link
+      // to the site - and the Russian side points at the bact.io host.
       var art = {
-        en: { src: 'assets/hero-art.png',    alt: 'PetriDish — multiplayer cell-eating game. Play online' },
-        ru: { src: 'assets/hero-art-ru.png', alt: 'PetriDish — многопользовательская игра про поедание клеток. Играть онлайн' }
+        en: { src: 'assets/hero-art.png',    href: 'https://petridish.pw/',  title: 'Play online',
+              alt: 'PetriDish — multiplayer cell-eating game. Play online' },
+        ru: { src: 'assets/hero-art-ru.png', href: 'https://petri.bact.io/', title: 'Играть онлайн',
+              alt: 'PetriDish — многопользовательская игра про поедание клеток. Играть онлайн' }
       };
 
       function apply(lang) {
@@ -119,6 +124,10 @@
         if (hero && hero.getAttribute('src') !== a.src) {
           hero.src = a.src;
           hero.alt = a.alt;
+        }
+        if (heroLink) {
+          heroLink.href = a.href;
+          heroLink.title = a.title;
         }
         for (var i = 0; i < buttons.length; i++) {
           var on = buttons[i].getAttribute('data-lang') === lang;
