@@ -13,9 +13,11 @@
 </head>
 <body>
   <!-- Language: both languages live in the markup, <html lang> decides which one
-       is visible (see the .en/.ru rules in styles.css). The choice is remembered
-       in localStorage; a first-time visitor gets Russian if the browser asks for
-       it. With JavaScript off the page stays English, which is the lang above. -->
+       is visible (see the .en/.ru rules in styles.css). The hero is the one
+       exception - its text is baked into the artwork, so the script swaps the
+       image src instead. The choice is remembered in localStorage; a first-time
+       visitor gets Russian if the browser asks for it. With JavaScript off the
+       page stays English, which is the lang above. -->
   <nav class="lang-switch" aria-label="Language">
     <button type="button" data-lang="en">EN</button>
     <button type="button" data-lang="ru">RU</button>
@@ -24,7 +26,7 @@
   <main>
     <section class="hero">
       <a href="https://petridish.pw/" title="Play online">
-        <img src="assets/hero-art.png" alt="PetriDish — multiplayer cell-eating game. Play online">
+        <img id="hero-art" src="assets/hero-art.png" alt="PetriDish — multiplayer cell-eating game. Play online">
       </a>
     </section>
 
@@ -103,8 +105,21 @@
       var root = document.documentElement;
       var buttons = document.querySelectorAll('.lang-switch button');
 
+      var hero = document.getElementById('hero-art');
+      var art = {
+        en: { src: 'assets/hero-art.png',    alt: 'PetriDish — multiplayer cell-eating game. Play online' },
+        ru: { src: 'assets/hero-art-ru.png', alt: 'PetriDish — многопользовательская игра про поедание клеток. Играть онлайн' }
+      };
+
       function apply(lang) {
         root.lang = lang;
+        var a = art[lang] || art.en;
+        // the file name is the guard: assigning the same src again would make
+        // some browsers redraw the banner and flash it on every click
+        if (hero && hero.getAttribute('src') !== a.src) {
+          hero.src = a.src;
+          hero.alt = a.alt;
+        }
         for (var i = 0; i < buttons.length; i++) {
           var on = buttons[i].getAttribute('data-lang') === lang;
           buttons[i].classList.toggle('active', on);
