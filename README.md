@@ -25,7 +25,7 @@
 [![App Store](https://img.shields.io/badge/App%20Store-install-0D96F6?style=flat-square&logo=appstore&logoColor=white)](https://apps.apple.com/app/id1247567081)
 
 **[pc.petridish.pw](https://pc.petridish.pw)** · mirror / зеркало **[pc.bact.io](https://pc.bact.io)**<br>
-[petridish.pw](https://petridish.pw)
+[petridish.pw](https://petridish.pw) · mirror / зеркало [petri.bact.io](https://petri.bact.io)
 
 </div>
 
