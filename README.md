@@ -14,7 +14,7 @@
 
 ### Download · Скачать
 
-[![Windows](https://img.shields.io/badge/Windows-download-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/petridish-org/PetriDishJavaClient/releases/latest/download/PetriDishJ.exe)
+[![Windows](https://img.shields.io/badge/Windows-download-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/petridish-org/PetriDishJavaClient/releases/download/v5.0.0/PetriDishJ500.exe)
 [![macOS Apple Silicon](https://img.shields.io/badge/macOS-Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/petridish-org/PetriDishJavaClient/releases/download/v5.0.0/PetriDish-5.0.0-arm64.dmg)
 [![macOS Intel](https://img.shields.io/badge/macOS-Intel-4A4A4A?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/petridish-org/PetriDishJavaClient/releases/download/v5.0.0/PetriDish-5.0.0-x64.dmg)
 
@@ -38,14 +38,15 @@ above update themselves; the `.apk` is only for phones too old for Google Play
 
 | File | What it is |
 | --- | --- |
-| `PetriDishJ.exe` | Windows, self-contained, no installer |
+| `PetriDishJ500.exe` | Windows, self-contained, no installer |
 | `PetriDish-5.0.0-arm64.dmg` | macOS on Apple Silicon (M1 and newer) |
 | `PetriDish-5.0.0-x64.dmg` | macOS on Intel |
 | `PetriDish-desktop-min.jar` | any system with Java installed |
 | `PetriDish-android-legacy-version.apk` | Android 5.1+, installed by hand |
 
-The Windows, Java and Android links always point at the newest release. macOS file
-names carry the version, so those two are refreshed with every release.
+The Java and Android file names never change, so those two links always point at the
+newest release. The Windows and macOS names carry the version number, so those
+buttons are repointed with every release.
 
 This repository hosts release binaries only — the game source code is not published
 here. Every build stays available on its own
@@ -59,14 +60,15 @@ Windows-сборка работает без установки — скачат
 
 | Файл | Что это |
 | --- | --- |
-| `PetriDishJ.exe` | Windows, всё внутри, установка не нужна |
+| `PetriDishJ500.exe` | Windows, всё внутри, установка не нужна |
 | `PetriDish-5.0.0-arm64.dmg` | macOS на Apple Silicon (M1 и новее) |
 | `PetriDish-5.0.0-x64.dmg` | macOS на Intel |
 | `PetriDish-desktop-min.jar` | любая система, где установлена Java |
 | `PetriDish-android-legacy-version.apk` | Android 5.1+, установка вручную |
 
-Ссылки на Windows, Java и Android всегда ведут на самый новый релиз. В именах файлов
-macOS есть номер версии, поэтому эти две обновляются с каждым релизом.
+Имена файлов Java и Android не меняются, поэтому эти две ссылки всегда ведут на
+самый новый релиз. В именах Windows и macOS есть номер версии, поэтому эти
+кнопки перенацеливаются на каждый новый релиз.
 
 Здесь лежат только готовые сборки — исходный код игры не публикуется. Каждая сборка
 остаётся доступной на своей
