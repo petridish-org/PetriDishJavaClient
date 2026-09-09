@@ -24,7 +24,8 @@
 [![Google Play](https://img.shields.io/badge/Google%20Play-install-414141?style=flat-square&logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=pw.petridish)
 [![App Store](https://img.shields.io/badge/App%20Store-install-0D96F6?style=flat-square&logo=appstore&logoColor=white)](https://apps.apple.com/app/id1247567081)
 
-**[pc.petridish.pw](https://pc.petridish.pw)** · mirror / зеркало **[pc.bact.io](https://pc.bact.io)** · [petridish.pw](https://petridish.pw)
+**[pc.petridish.pw](https://pc.petridish.pw)** · mirror / зеркало **[pc.bact.io](https://pc.bact.io)**<br>
+[petridish.pw](https://petridish.pw)
 
 </div>
 
